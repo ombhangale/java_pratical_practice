@@ -1,0 +1,240 @@
+ JAVA CODE  - JavaQes
+
+
+───────────────────────────────────────────────────────────────────────────────
+FILE 1: EmployeQ1.java
+───────────────────────────────────────────────────────────────────────────────
+
+package JavaQes;
+
+/*  Write a Java program to create a class Employee with a method called
+calculateSalary().Create two subclasses Manager and Programmer. In each subclass,
+override the calculateSalary() method to calculate and return the salary based on specific
+roles. */
+
+class Employee {
+    // Method to calculate salary
+    double calculateSalary() {
+        return 0;
+    }
+}
+
+// Subclass Manager
+class Manager extends Employee {
+    double calculateSalary() {
+        double basicSalary = 50000;
+        double bonus = 10000;
+        return basicSalary + bonus;
+    }
+}
+
+// Subclass Programmer
+class Programmer extends Employee {
+    double calculateSalary() {
+        double basicSalary = 40000;
+        double overtime = 5000;
+        return basicSalary + overtime;
+    }
+}
+
+// Main Class
+public class EmployeQ1{
+    public static void main(String[] args) {
+        Manager m = new Manager();
+        Programmer p = new Programmer();
+        System.out.println("Manager Salary: " + m.calculateSalary());
+        System.out.println("Programmer Salary: " + p.calculateSalary());
+    }
+}
+
+
+───────────────────────────────────────────────────────────────────────────────
+FILE 2: MainQ2.java
+───────────────────────────────────────────────────────────────────────────────
+
+package JavaQes;
+
+/*  Define an Interface Shape with abstract method area(). Write a java program to
+calculate an area of Circle and Sphere.(use final keyword) */
+
+interface Shape {
+    // Abstract method
+    void area();
+}
+
+// Circle class
+class Circle implements Shape {
+    final double PI = 3.14;
+    int radius = 5;
+
+    public void area() {
+        double area = PI * radius * radius;
+        System.out.println("Area of Circle = " + area);
+    }
+}
+
+// Sphere class
+class Sphere implements Shape {
+    final double PI = 3.14;
+    int radius = 5;
+
+    public void area() {
+        double area = 4 * PI * radius * radius;
+        System.out.println("Area of Sphere = " + area);
+    }
+}
+
+// Main class
+public class MainQ2 {
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        Sphere s = new Sphere();
+        c.area();
+        s.area();
+    }
+}
+
+
+───────────────────────────────────────────────────────────────────────────────
+FILE 3: MainQ3.java
+───────────────────────────────────────────────────────────────────────────────
+
+package JavaQes;
+
+/*  Define an abstract class Shape with abstract methods area () and volume (). Derive
+abstract class Shape into two classes Cone and Cylinder. Write a java Program to
+calculate area and volume of Cone and Cylinder.(Use Super Keyword.) */
+
+abstract class Shape {
+    double radius, height;
+
+    // Constructor
+    Shape(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    // Abstract methods
+    abstract void area();
+    abstract void volume();
+}
+
+// Cone class
+class Cone extends Shape {
+    Cone(double radius, double height) {
+        super(radius, height); // using super keyword
+    }
+
+    void area() {
+        double area = 3.14 * radius * (radius + height);
+        System.out.println("Area of Cone = " + area);
+    }
+
+    void volume() {
+        double volume = (1.0 / 3) * 3.14 * radius * radius * height;
+        System.out.println("Volume of Cone = " + volume);
+    }
+}
+
+// Cylinder class
+class Cylinder extends Shape {
+    Cylinder(double radius, double height) {
+        super(radius, height); // using super keyword
+    }
+
+    void area() {
+        double area = 2 * 3.14 * radius * (radius + height);
+        System.out.println("Area of Cylinder = " + area);
+    }
+
+    void volume() {
+        double volume = 3.14 * radius * radius * height;
+        System.out.println("Volume of Cylinder = " + volume);
+    }
+}
+
+// Main class
+public class MainQ3 {
+    public static void main(String[] args) {
+        Cone c = new Cone(5, 10);
+        Cylinder cy = new Cylinder(5, 10);
+        c.area();
+        c.volume();
+        cy.area();
+        cy.volume();
+    }
+}
+
+
+───────────────────────────────────────────────────────────────────────────────
+FILE 4: MainQ4.java
+───────────────────────────────────────────────────────────────────────────────
+
+package JavaQes;
+
+/* Create an abstract class Shape with methods calc_area() &
+ calc_volume(). Derive two classes Sphere(radius) &
+ Cone(radius, height) from it. Calculate area and
+ volume of both.(Use Method Overriding) */
+
+abstract class Shape {
+    // Abstract methods
+    abstract void calc_area();
+    abstract void calc_volume();
+}
+
+// Sphere class
+class Sphere extends Shape {
+    double radius;
+
+    Sphere(double radius) {
+        this.radius = radius;
+    }
+
+    // Method Overriding
+    void calc_area() {
+        double area = 4 * 3.14 * radius * radius;
+        System.out.println("Area of Sphere = " + area);
+    }
+
+    // Method Overriding
+    void calc_volume() {
+        double volume = (4.0 / 3) * 3.14 * radius * radius * radius;
+        System.out.println("Volume of Sphere = " + volume);
+    }
+}
+
+// Cone class
+class Cone extends Shape {
+    double radius, height;
+
+    Cone(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    // Method Overriding
+    void calc_area() {
+        double area = 3.14 * radius * (radius + height);
+        System.out.println("Area of Cone = " + area);
+    }
+
+    // Method Overriding
+    void calc_volume() {
+        double volume = (1.0 / 3) * 3.14 * radius * radius * height;
+        System.out.println("Volume of Cone = " + volume);
+    }
+}
+
+// Main class
+public class MainQ4{
+    public static void main(String[] args) {
+        Sphere s = new Sphere(5);
+        Cone c = new Cone(5, 10);
+        s.calc_area();
+        s.calc_volume();
+        c.calc_area();
+        c.calc_volume();
+    }
+}
+

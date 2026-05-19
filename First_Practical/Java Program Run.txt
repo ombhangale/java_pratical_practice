@@ -1,0 +1,13 @@
+1. How to run java program 
+** je apn class che  name same name file ch pn pahije  ***
+
+2. Check the direction of file for command 
+dir 
+
+3. create the bash file 
+  javac<File Name(condition same class name)>.java 
+
+
+4. java <File Name > jr he nhi zal tr he use karch 
+
+5. <File Name> space java 
